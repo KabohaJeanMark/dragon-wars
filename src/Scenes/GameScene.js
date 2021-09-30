@@ -20,6 +20,7 @@ export default class GameScene extends Phaser.Scene {
 
     this.player = this.physics.add.sprite(40, this.sys.game.config.height / 3, 'player', 6);
     this.player.setScale(0.7);
+    this.player.setCollideWorldBounds(true);
 
     // goal
     this.treasure = this.add.sprite(this.sys.game.config.width - 60, this.sys.game.config.height / 3, 'treasure');
@@ -42,6 +43,18 @@ export default class GameScene extends Phaser.Scene {
     enemies.forEach((enemy) => {
       enemy.setScale(0.8);
       enemy.speed = Math.random() * 2 + 2;
+    });
+
+    // group of stars, dragon food
+    this.stars = this.add.group({
+      key: 'star',
+      repeat: 4,
+      setXY: {
+        x: 210,
+        y: 100,
+        stepX: 240,
+        stepY: Phaser.Math.Between(0, 120),
+      },
     });
 
     // enable keyboard inputs
