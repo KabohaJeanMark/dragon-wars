@@ -5,18 +5,14 @@ export default class GameScene extends Phaser.Scene {
     super('Game');
   }
 
-  init() {
-    this.playerSpeed = 1.5;
-    this.enemyMaxY = 440;
-    this.enemyMinY = 80;
+  // init() {
+  //   this.playerSpeed = 1.5;
+  //   this.enemyMaxY = 440;
+  //   this.enemyMinY = 80;
+  // }
+
+  create() {
+    let bg = this.add.sprite(0, 0, 'background');
+    bg.setOrigin(0,0);
   }
-
-  // preload() {
-  //   // load images
-  //   this.load.image('logo', 'src/assets/logo.png');
-  // }
-
-  // create() {
-  //   // this.add.image(400, 300, 'logo');
-  // }
 }
