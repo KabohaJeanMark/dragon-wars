@@ -18,11 +18,11 @@ export default class GameScene extends Phaser.Scene {
     // player is alive
     this.isPlayerAlive = true;
 
-    this.player = this.physics.add.sprite(40, this.sys.game.config.height / 4, 'player', 6);
+    this.player = this.physics.add.sprite(40, this.sys.game.config.height / 3, 'player', 6);
     this.player.setScale(0.7);
 
     // goal
-    this.treasure = this.add.sprite(this.sys.game.config.width - 60, this.sys.game.config.height / 4, 'treasure');
+    this.treasure = this.add.sprite(this.sys.game.config.width - 60, this.sys.game.config.height / 3, 'treasure');
     this.treasure.setScale(0.6);
 
     // group of enemies
@@ -39,14 +39,10 @@ export default class GameScene extends Phaser.Scene {
 
     const enemies = this.enemies.getChildren();
 
-    enemies.forEach((dragon) => {
-      dragon.setScale(0.8);
-    });
-
-    // set speeds. Phaser.Actions.Call helps us call each a function on array element
-    Phaser.Actions.Call(enemies, (enemy) => {
+    enemies.forEach((enemy) => {
+      enemy.setScale(0.8);
       enemy.speed = Math.random() * 2 + 2;
-    }, this);
+    });
 
     // enable keyboard inputs
     this.cursors = this.input.keyboard.createCursorKeys();
