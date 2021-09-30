@@ -25,6 +25,9 @@ export default class GameScene extends Phaser.Scene {
     this.treasure = this.add.sprite(this.sys.game.config.width - 60, this.sys.game.config.height / 4, 'treasure');
     this.treasure.setScale(0.6);
 
+    // enable keyboard inputs
+    this.cursors = this.input.keyboard.createCursorKeys();
+
     // animation movements
     this.anims.create({
       key: 'left',
@@ -50,5 +53,30 @@ export default class GameScene extends Phaser.Scene {
       frameRate: 10,
       repeat: -1,
     });
+  }
+
+  update() {
+    if (!this.isPlayerAlive) {
+      return;
+    }
+
+    // ADD MOVEMENT BASED ON THE KEYBOARD
+    this.player.body.setVelocity(0);
+    // Horizontal movement
+    if (this.cursors.left.isDown) {
+      this.player.body.setVelocityX(-80);
+      this.player.anims.play('left', true);
+    } else if (this.cursors.right.isDown) {
+      this.player.body.setVelocityX(80);
+      this.player.anims.play('right', true);
+    }
+    // Vertical movement
+    if (this.cursors.up.isDown) {
+      this.player.body.setVelocityY(-80);
+      this.player.anims.play('up', true);
+    } else if (this.cursors.down.isDown) {
+      this.player.body.setVelocityY(80);
+      this.player.anims.play('down', true);
+    }
   }
 }
