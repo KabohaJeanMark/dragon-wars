@@ -19,7 +19,7 @@ export default class GameScene extends Phaser.Scene {
     this.isPlayerAlive = true;
 
     this.player = this.physics.add.sprite(40, this.sys.game.config.height / 4, 'player', 6);
-    this.player.setScale(0.5);
+    this.player.setScale(0.7);
 
     // goal
     this.treasure = this.add.sprite(this.sys.game.config.width - 60, this.sys.game.config.height / 4, 'treasure');
@@ -30,9 +30,9 @@ export default class GameScene extends Phaser.Scene {
       key: 'blueDragon',
       repeat: 4,
       setXY: {
-        x: 150,
+        x: 210,
         y: 100,
-        stepX: 180,
+        stepX: 240,
         stepY: 60,
       },
     });
@@ -40,11 +40,11 @@ export default class GameScene extends Phaser.Scene {
     const enemies = this.enemies.getChildren();
 
     enemies.forEach((dragon) => {
-      dragon.setScale(0.9);
+      dragon.setScale(0.8);
     });
 
     // scale enemies. Phaser.Actions.ScaleXY helps us scale each array element
-    Phaser.Actions.ScaleXY(enemies, -0.5, -0.5);
+    // Phaser.Actions.ScaleXY(enemies, -0.5, -0.5);
 
     // set speeds. Phaser.Actions.Call helps us call each a function on array element
     Phaser.Actions.Call(enemies, (enemy) => {
