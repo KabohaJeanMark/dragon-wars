@@ -12,7 +12,7 @@ const gameConfig = {
     default: 'arcade',
     arcade: {
       debug: false,
-      gravity: { y: 600 },
+      gravity: { y: 0 },
     },
   },
   user: '',
