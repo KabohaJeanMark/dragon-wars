@@ -25,6 +25,32 @@ export default class GameScene extends Phaser.Scene {
     this.treasure = this.add.sprite(this.sys.game.config.width - 60, this.sys.game.config.height / 4, 'treasure');
     this.treasure.setScale(0.6);
 
+    // group of enemies
+    this.enemies = this.add.group({
+      key: 'blueDragon',
+      repeat: 4,
+      setXY: {
+        x: 150,
+        y: 100,
+        stepX: 180,
+        stepY: 60,
+      },
+    });
+
+    const enemies = this.enemies.getChildren();
+
+    enemies.forEach((dragon) => {
+      dragon.setScale(0.9);
+    });
+
+    // scale enemies. Phaser.Actions.ScaleXY helps us scale each array element
+    Phaser.Actions.ScaleXY(enemies, -0.5, -0.5);
+
+    // set speeds. Phaser.Actions.Call helps us call each a function on array element
+    Phaser.Actions.Call(enemies, (enemy) => {
+      enemy.speed = Math.random() * 2 + 1;
+    }, this);
+
     // enable keyboard inputs
     this.cursors = this.input.keyboard.createCursorKeys();
 
