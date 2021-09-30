@@ -5,6 +5,12 @@ export default class GameScene extends Phaser.Scene {
     super('Game');
   }
 
+  init() {
+    this.playerSpeed = 1.5;
+    this.enemyMaxY = 440;
+    this.enemyMinY = 80;
+  }
+
   // preload() {
   //   // load images
   //   this.load.image('logo', 'src/assets/logo.png');
