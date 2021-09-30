@@ -5,11 +5,11 @@ export default class GameScene extends Phaser.Scene {
     super('Game');
   }
 
-  // init() {
-  //   this.playerSpeed = 1.5;
-  //   this.enemyMaxY = 440;
-  //   this.enemyMinY = 80;
-  // }
+  init() {
+    this.playerSpeed = 1.5;
+    this.enemyMaxY = 440;
+    this.enemyMinY = 80;
+  }
 
   create() {
     const bg = this.add.sprite(0, 0, 'background');
@@ -20,5 +20,9 @@ export default class GameScene extends Phaser.Scene {
 
     this.player = this.physics.add.sprite(40, this.sys.game.config.height / 4, 'player', 6);
     this.player.setScale(0.5);
+
+    // goal
+    this.treasure = this.add.sprite(this.sys.game.config.width - 60, this.sys.game.config.height / 4, 'treasure');
+    this.treasure.setScale(0.6);
   }
 }
