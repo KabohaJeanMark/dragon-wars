@@ -19,11 +19,11 @@ export default class GameScene extends Phaser.Scene {
     this.isPlayerAlive = true;
 
     this.player = this.physics.add.sprite(40, this.sys.game.config.height / 3, 'player', 6);
-    this.player.setScale(0.7);
+    this.player.setScale(0.9);
     this.player.setCollideWorldBounds(true);
 
     // goal
-    this.treasure = this.add.sprite(this.sys.game.config.width - 60, this.sys.game.config.height / 3, 'treasure');
+    this.treasure = this.add.sprite(this.sys.game.config.width - 120, this.sys.game.config.height / 3, 'treasure');
     this.treasure.setScale(0.6);
 
     // group of enemies
@@ -31,9 +31,9 @@ export default class GameScene extends Phaser.Scene {
       key: 'blueDragon',
       repeat: 4,
       setXY: {
-        x: 210,
+        x: 300,
         y: 100,
-        stepX: 240,
+        stepX: 300,
         stepY: 60,
       },
     });
@@ -41,7 +41,7 @@ export default class GameScene extends Phaser.Scene {
     const enemies = this.enemies.getChildren();
 
     enemies.forEach((enemy) => {
-      enemy.setScale(0.8);
+      enemy.setScale(1.1);
       enemy.speed = Math.random() * 2 + 2;
     });
 
@@ -50,10 +50,10 @@ export default class GameScene extends Phaser.Scene {
       key: 'star',
       repeat: 4,
       setXY: {
-        x: 210,
+        x: 300,
         y: 100,
-        stepX: 240,
-        stepY: Phaser.Math.Between(0, 120),
+        stepX: 300,
+        stepY: 80,
       },
     });
 
