@@ -7,7 +7,7 @@ export default class GameScene extends Phaser.Scene {
 
   init() {
     this.playerSpeed = 1.5;
-    this.enemyMaxY = 440;
+    this.enemyMaxY = 600;
     this.enemyMinY = 80;
   }
 
@@ -43,12 +43,9 @@ export default class GameScene extends Phaser.Scene {
       dragon.setScale(0.8);
     });
 
-    // scale enemies. Phaser.Actions.ScaleXY helps us scale each array element
-    // Phaser.Actions.ScaleXY(enemies, -0.5, -0.5);
-
     // set speeds. Phaser.Actions.Call helps us call each a function on array element
     Phaser.Actions.Call(enemies, (enemy) => {
-      enemy.speed = Math.random() * 2 + 1;
+      enemy.speed = Math.random() * 2 + 2;
     }, this);
 
     // enable keyboard inputs
@@ -103,6 +100,20 @@ export default class GameScene extends Phaser.Scene {
     } else if (this.cursors.down.isDown) {
       this.player.body.setVelocityY(80);
       this.player.anims.play('down', true);
+    }
+
+    // enemy movement
+    const enemies = this.enemies.getChildren();
+    const numEnemies = enemies.length;
+    for (let i = 0; i < numEnemies; i += 1) {
+      // move enemies
+      enemies[i].y += enemies[i].speed;
+      // reverse movement if reached the edges
+      if (enemies[i].y >= this.enemyMaxY && enemies[i].speed > 0) {
+        enemies[i].speed *= -1;
+      } else if (enemies[i].y <= this.enemyMinY && enemies[i].speed < 0) {
+        enemies[i].speed *= -1;
+      }
     }
   }
 }
