@@ -23,11 +23,11 @@ export default class GameScene extends Phaser.Scene {
     this.player.setCollideWorldBounds(true);
 
     // goal
-    this.treasure = this.add.sprite(this.sys.game.config.width - 120, this.sys.game.config.height / 3, 'treasure');
+    this.treasure = this.physics.add.sprite(this.sys.game.config.width - 120, this.sys.game.config.height / 3, 'treasure');
     this.treasure.setScale(0.6);
 
     // group of enemies
-    this.enemies = this.add.group({
+    this.enemies = this.physics.add.group({
       key: 'blueDragon',
       repeat: 4,
       setXY: {
@@ -46,7 +46,7 @@ export default class GameScene extends Phaser.Scene {
     });
 
     // group of stars, dragon food
-    this.stars = this.add.group({
+    this.stars = this.physics.add.group({
       key: 'star',
       repeat: 4,
       setXY: {
