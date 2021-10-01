@@ -57,6 +57,12 @@ export default class GameScene extends Phaser.Scene {
       },
     });
 
+    function collectStar(player, star) {
+      star.disableBody(true, true);
+    }
+
+    this.physics.add.overlap(this.player, this.stars, collectStar, null, this);
+
     // enable keyboard inputs
     this.cursors = this.input.keyboard.createCursorKeys();
 
