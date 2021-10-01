@@ -15,6 +15,10 @@ export default class GameScene extends Phaser.Scene {
     const bg = this.add.sprite(0, 0, 'background');
     bg.setOrigin(0, 0);
 
+    // initialize the score
+    let score = 0;
+    const scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#fff' });
+
     // player is alive
     this.isPlayerAlive = true;
 
@@ -59,6 +63,8 @@ export default class GameScene extends Phaser.Scene {
 
     function collectStar(player, star) {
       star.disableBody(true, true);
+      score += 25;
+      scoreText.setText(`Score: ${score}`);
     }
 
     this.physics.add.overlap(this.player, this.stars, collectStar, null, this);
