@@ -31,7 +31,7 @@ export default class GameScene extends Phaser.Scene {
     this.treasure.setScale(0.6);
 
     // group of enemies
-    this.enemies = this.add.group({
+    this.enemies = this.physics.add.group({
       key: 'blueDragon',
       repeat: 4,
       setXY: {
@@ -86,6 +86,12 @@ export default class GameScene extends Phaser.Scene {
       repeat: -1,
     });
     this.anims.create({
+      key: 'turn',
+      frames: [ { key: 'right1'} ],
+      frameRate: 20,
+      repeat: -1
+    });
+    this.anims.create({
       key: 'up',
       frames: [{ key: 'up1' }, { key: 'up2' }, { key: 'up3' }, { key: 'up4' }, { key: 'up5' }, { key: 'up6' }],
       frameRate: 10,
@@ -135,6 +141,15 @@ export default class GameScene extends Phaser.Scene {
       } else if (enemies[i].y <= this.enemyMinY && enemies[i].speed < 0) {
         enemies[i].speed *= -1;
       }
+
+      // add collision
+      this.physics.add.collider(this.player, enemies[i], this.hitDragon, null, this);
     }
+  }
+
+  hitDragon(player, enemy) {
+    console.log('hit this function');
+    this.physics.pause();
+    player.anims.play('turn', true);
   }
 }
