@@ -31,7 +31,7 @@ export default class GameScene extends Phaser.Scene {
     this.treasure.setScale(0.6);
 
     // group of enemies
-    this.enemies = this.physics.add.group({
+    this.enemies = this.add.group({
       key: 'blueDragon',
       repeat: 4,
       setXY: {
