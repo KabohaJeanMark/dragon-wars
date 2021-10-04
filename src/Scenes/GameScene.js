@@ -32,6 +32,14 @@ export default class GameScene extends Phaser.Scene {
     this.treasure = this.physics.add.sprite(this.sys.game.config.width - 120, this.sys.game.config.height / 3, 'treasure');
     this.treasure.setScale(0.6);
 
+    function collectEgg(player, treasure) {
+      treasure.disableBody(true, true);
+      score += 75;
+      scoreText.setText(`Score: ${score}`);
+    }
+
+    this.physics.add.overlap(this.player, this.treasure, collectEgg, null, this);
+
     // group of enemies
     this.enemies = this.physics.add.group({
       key: 'blueDragon',
