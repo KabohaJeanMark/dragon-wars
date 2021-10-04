@@ -65,6 +65,13 @@ export default class GameScene extends Phaser.Scene {
       star.disableBody(true, true);
       score += 25;
       scoreText.setText(`Score: ${score}`);
+
+      if (this.stars.countActive(true) === 0) {
+        //  A new batch of stars to collect
+        this.stars.children.iterate((child) => {
+          child.enableBody(true, child.x, 200, true, true);
+        });
+      }
     }
 
     this.physics.add.overlap(this.player, this.stars, collectStar, null, this);
@@ -87,9 +94,9 @@ export default class GameScene extends Phaser.Scene {
     });
     this.anims.create({
       key: 'turn',
-      frames: [ { key: 'right1'} ],
+      frames: [{ key: 'right1' }],
       frameRate: 20,
-      repeat: -1
+      repeat: -1,
     });
     this.anims.create({
       key: 'up',
