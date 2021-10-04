@@ -25,6 +25,8 @@ export default class GameScene extends Phaser.Scene {
     this.player = this.physics.add.sprite(40, this.sys.game.config.height / 3, 'player', 6);
     this.player.setScale(0.9);
     this.player.setCollideWorldBounds(true);
+    // reduce colision area
+    this.player.body.setSize(60, 60, 8, 8);
 
     // goal
     this.treasure = this.physics.add.sprite(this.sys.game.config.width - 120, this.sys.game.config.height / 3, 'treasure');
