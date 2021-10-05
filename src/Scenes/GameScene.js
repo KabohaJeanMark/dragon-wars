@@ -1,11 +1,16 @@
 import Phaser from 'phaser';
+import gameConfig from '../Config/config';
+
+export const playerInfo = {
+  name: gameConfig.user,
+  score: 0,
+};
 
 export default class GameScene extends Phaser.Scene {
   constructor() {
     super('Game');
     // player is alive
     this.isPlayerAlive = true;
-    
   }
 
   init() {
@@ -19,7 +24,6 @@ export default class GameScene extends Phaser.Scene {
     bg.setOrigin(0, 0);
 
     // initialize the score
-    let score = 0;
     const scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#fff' });
 
     this.player = this.physics.add.sprite(40, this.sys.game.config.height / 3, 'player', 6);
@@ -34,8 +38,8 @@ export default class GameScene extends Phaser.Scene {
 
     function collectEgg(player, treasure) {
       treasure.disableBody(true, true);
-      score += 75;
-      scoreText.setText(`Score: ${score}`);
+      playerInfo.score += 75;
+      scoreText.setText(`Score: ${playerInfo.score}`);
     }
 
     this.physics.add.overlap(this.player, this.treasure, collectEgg, null, this);
@@ -73,8 +77,8 @@ export default class GameScene extends Phaser.Scene {
 
     function collectStar(player, star) {
       star.disableBody(true, true);
-      score += 25;
-      scoreText.setText(`Score: ${score}`);
+      playerInfo.score += 25;
+      scoreText.setText(`Score: ${playerInfo.score}`);
 
       if (this.stars.countActive(true) === 0) {
         //  A new batch of stars to collect
