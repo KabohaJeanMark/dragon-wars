@@ -3,6 +3,9 @@ import Phaser from 'phaser';
 export default class GameScene extends Phaser.Scene {
   constructor() {
     super('Game');
+    // player is alive
+    this.isPlayerAlive = true;
+    
   }
 
   init() {
@@ -18,9 +21,6 @@ export default class GameScene extends Phaser.Scene {
     // initialize the score
     let score = 0;
     const scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#fff' });
-
-    // player is alive
-    this.isPlayerAlive = true;
 
     this.player = this.physics.add.sprite(40, this.sys.game.config.height / 3, 'player', 6);
     this.player.setScale(0.9);
@@ -105,8 +105,7 @@ export default class GameScene extends Phaser.Scene {
     this.anims.create({
       key: 'turn',
       frames: [{ key: 'right1' }],
-      frameRate: 20,
-      repeat: -1,
+      frameRate: 10,
     });
     this.anims.create({
       key: 'up',
@@ -164,9 +163,11 @@ export default class GameScene extends Phaser.Scene {
     }
   }
 
-  hitDragon(player, enemy) {
+  hitDragon(player) {
     console.log('hit this function');
     this.physics.pause();
     player.anims.play('turn', true);
+    // this.gameOver = true;
+    this.isPlayerAlive = false;
   }
 }
