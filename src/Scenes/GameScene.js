@@ -132,15 +132,7 @@ export default class GameScene extends Phaser.Scene {
       playerInfo.user = gameConfig.user;
       console.log('Go to end game scene');
 
-      const div = document.createElement('div');
-      div.setAttribute('id', 'div');
-      div.innerHTML = "<h1 class='header' id='gameOverHeader'>GAME OVER</h1>";
-      this.add.dom(gameConfig.width / 2, gameConfig.height / 2, div);
-      this.scene.transition({
-        target: 'EndGame',
-        duration: 2500,
-        remove: true,
-      });
+      this.scene.start('EndGame');
       return;
     }
 
