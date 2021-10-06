@@ -43,6 +43,7 @@
     "webpack-dev-server": "^3.9.0"
   },
   "dependencies": {
+    "axios": "^0.22.0",
     "phaser": "^3.50.0"
   },
   "keywords": []

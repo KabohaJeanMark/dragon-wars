@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 import gameConfig from '../Config/config';
 
 export const playerInfo = {
-  name: gameConfig.user,
+  user: gameConfig.user,
   score: 0,
 };
 
@@ -127,6 +127,10 @@ export default class GameScene extends Phaser.Scene {
 
   update() {
     if (!this.isPlayerAlive) {
+      playerInfo.user = gameConfig.user;
+      console.log('Go to end game scene');
+      this.scene.stop();
+      this.scene.start('EndGame');
       return;
     }
 
