@@ -6,7 +6,7 @@ module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
   entry: {
-    app: './src/index.js',
+    app: ['babel-polyfill', './src/index.js'],
   },
   output: {
     filename: 'app.bundle.js',
