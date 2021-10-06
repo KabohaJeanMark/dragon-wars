@@ -14,7 +14,8 @@ export default class PlayerOneScene extends Phaser.Scene {
     this.add.dom(gameConfig.width / 2, gameConfig.height / 2, div);
 
     const nameButton = document.getElementById('nameButton');
-    nameButton.classList.add('btn', 'btn-danger', 'm-1', 'p-1');
+    nameButton.classList.add('btn', 'm-1', 'p-1');
+    nameButton.style.cssText = 'color: #fff; background: rgb(44, 124, 161);';
 
     const playerNameText = document.getElementById('nameInput');
     playerNameText.classList.add('form-text', 'm-1', 'p-1');
