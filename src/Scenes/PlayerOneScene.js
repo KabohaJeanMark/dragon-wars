@@ -24,6 +24,8 @@ export default class PlayerOneScene extends Phaser.Scene {
       if (playerNameText.value !== '') {
         gameConfig.user = playerNameText.value;
         this.scene.start('Game');
+      } else {
+        this.add.text(gameConfig.width / 3, gameConfig.height / 3, 'Please Type In Player Name', { fontSize: 30, fill: '#fff' });
       }
     });
   }
