@@ -11,6 +11,8 @@ export default class GameScene extends Phaser.Scene {
     super('Game');
     // player is alive
     this.isPlayerAlive = true;
+
+    console.log("This scene has started");
   }
 
   init() {
