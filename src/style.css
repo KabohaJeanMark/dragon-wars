@@ -14,6 +14,7 @@ canvas {
   max-height: 100vh;
 }
 
-#playerName {
-  
+#gameOverHeader {
+  font-size: 8rem;
+  color: rgb(150, 16, 16);
 }

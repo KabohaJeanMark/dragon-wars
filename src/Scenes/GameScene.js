@@ -12,7 +12,7 @@ export default class GameScene extends Phaser.Scene {
     // player is alive
     this.isPlayerAlive = true;
 
-    console.log("This scene has started");
+    console.log('This scene has started');
   }
 
   init() {
@@ -131,8 +131,17 @@ export default class GameScene extends Phaser.Scene {
     if (!this.isPlayerAlive) {
       playerInfo.user = gameConfig.user;
       console.log('Go to end game scene');
-      this.scene.stop();
-      this.scene.start('EndGame');
+
+      // add GAME OVER text
+      const div = document.createElement('div');
+      div.setAttribute('id', 'div');
+      div.innerHTML = "<h1 class='header' id='gameOverHeader'>GAME OVER</h1>";
+      this.add.dom(gameConfig.width / 2, gameConfig.height / 2, div);
+      this.scene.transition({
+        target: 'EndGame',
+        duration: 4000,
+        remove: true,
+      });
       return;
     }
 
