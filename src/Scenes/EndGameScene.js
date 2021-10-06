@@ -23,12 +23,12 @@ export default class EndGameScene extends Phaser.Scene {
 
     const playAgainButton = document.createElement('button');
     playAgainButton.textContent = 'Play Again';
-    playAgainButton.classList.add('btn','p-1','m-1');
+    playAgainButton.classList.add('btn', 'p-1', 'm-1');
     playAgainButton.style.cssText = 'color: #fff; background: rgb(44, 124, 161);';
 
     playAgainButton.addEventListener('click', () => {
       this.scene.start('Title');
-    })
+    });
 
     div.append(header, playerScore, playAgainButton);
     this.add.dom(gameConfig.width / 2, gameConfig.height / 3, div);
