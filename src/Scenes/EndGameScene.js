@@ -13,11 +13,17 @@ export default class EndGameScene extends Phaser.Scene {
   create() {
     const div = document.createElement('div');
     div.setAttribute('id', 'div');
+
     const header = document.createElement('hi');
     header.setAttribute('id', 'gameOverHeader');
     header.textContent = 'GAME OVER';
-    div.appendChild(header);
-    this.add.dom(gameConfig.width / 2, gameConfig.height / 2, div);
+
+    const playerScore = document.createElement('p');
+    playerScore.style.cssText = 'color: #fff; font-size: 3rem; align-text: center';
+    playerScore.textContent = `Player ${playerInfo.user}, your Score is ${playerInfo.score}`;
+
+    div.append(header, playerScore);
+    this.add.dom(gameConfig.width / 2, gameConfig.height / 3, div);
 
     // this.add.text(
     //   gameConfig.width / 3,
