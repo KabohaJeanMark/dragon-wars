@@ -39,6 +39,16 @@ export default class TitleScene extends Phaser.Scene {
       'Credits',
       'Credits',
     );
+    // LeaderBoard
+    this.leaderboardButton = new Button(
+      this,
+      config.width / 2,
+      config.height / 2 + 200,
+      'blueButton1',
+      'blueButton2',
+      'Top Scores',
+      'Leaderboard',
+    );
 
     // globals
     this.model = this.sys.game.globals.model;
