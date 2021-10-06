@@ -28,5 +28,9 @@ export default class LeaderboardScene extends Phaser.Scene {
     console.log(scores);
     const sortedScores = scores.sort((a, b) => ((a.score > b.score) ? -1 : 1));
     console.log(sortedScores);
+
+    const topFive = sortedScores.slice(0,5);
+    console.log(topFive);
+
   }
 }
