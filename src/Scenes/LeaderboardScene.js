@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import axios from 'axios';
 import gameConfig from '../Config/config';
+import Button from '../Objects/Button';
 
 const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/9tPsZn1y6N53NhZOXkYG/scores/';
 
@@ -32,5 +33,14 @@ export default class LeaderboardScene extends Phaser.Scene {
     const topFive = sortedScores.slice(0,5);
     console.log(topFive);
 
+    this.menuButton = new Button(
+      this,
+      gameConfig.width / 2,
+      gameConfig.height / 4,
+      'blueButton1',
+      'blueButton2',
+      'Menu',
+      'Title',
+    );
   }
 }
