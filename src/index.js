@@ -7,7 +7,7 @@ import PreloaderScene from './Scenes/PreloaderScene';
 import TitleScene from './Scenes/TitleScene';
 import OptionsScene from './Scenes/OptionsScene';
 import CreditsScene from './Scenes/CreditsScene';
-import EndGameScene from './Scenes/EndGameScene';
+import { EndGameScene } from './Scenes/EndGameScene';
 import PlayerOneScene from './Scenes/PlayerOneScene';
 import { LeaderboardScene } from './Scenes/LeaderboardScene';
 

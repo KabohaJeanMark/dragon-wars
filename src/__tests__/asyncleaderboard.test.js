@@ -18,7 +18,7 @@ describe('Positive test for successful API call for fetching players', () => {
 });
 
 describe('Negative test for failed API call', () => {
-  it('should return empty array [] with no player info results', async () => {
+  it('should return empty array [] with no player info', async () => {
     const message = 'Network Error';
     axios.get.mockImplementation(() => Promise.reject(new Error(message)));
     const result = await getResults();

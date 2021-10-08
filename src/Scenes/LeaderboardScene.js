@@ -8,19 +8,6 @@ export const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/a
 
 let scores;
 
-// export const getResults = async () => {
-//   const response = await axios.get(url);
-//   console.log(response);
-//   return response.data.result;
-// };
-
-// getResults()
-//   .then((data) => {
-//     scores = data;
-//   }).catch((err) => {
-//     console.log(err.message);
-//   });
-
 export const getPlayers = async () => {
   const response = await axios.get(url);
   return response.data;
@@ -31,8 +18,7 @@ export const getResults = async () => {
     const data = await getPlayers();
     scores = data.result;
     return scores;
-  }
-  catch {
+  } catch {
     return [];
   }
 };

@@ -1,9 +1,33 @@
+import 'regenerator-runtime/runtime';
 import Phaser from 'phaser';
 import axios from 'axios';
 import gameConfig from '../Config/config';
 import { playerInfo } from './GameScene';
 
-export default class EndGameScene extends Phaser.Scene {
+export const baseUrl = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/9tPsZn1y6N53NhZOXkYG/scores/';
+
+export const postGameScore = async (scoreInfo) => {
+  const response = await axios.post(baseUrl, scoreInfo);
+  return response;
+};
+
+export const getResultofPost = async () => {
+  try {
+    const data = await postGameScore();
+    const result = data.result;
+    return result;
+  } catch {
+    return [{
+      "error": "The post of the score was not successful"
+    }];
+  }
+};
+
+if (playerInfo.score) {
+  postGameScore(playerInfo);
+}
+
+export class EndGameScene extends Phaser.Scene {
   constructor() {
     super('EndGame');
     console.log('EndGame scene');
@@ -32,15 +56,5 @@ export default class EndGameScene extends Phaser.Scene {
 
     div.append(header, playerScore, playAgainButton);
     this.add.dom(gameConfig.width / 2, gameConfig.height / 3, div);
-
-    const postGameScore = async (scoreInfo) => {
-      const baseUrl = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/9tPsZn1y6N53NhZOXkYG/scores/';
-      const response = await axios.post(baseUrl, scoreInfo);
-      return response.data;
-    };
-
-    if (playerInfo.score) {
-      postGameScore(playerInfo);
-    }
   }
 }
