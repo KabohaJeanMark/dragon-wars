@@ -6,7 +6,7 @@ module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
   entry: {
-    app: ['babel-polyfill', './src/index.js'],
+    app: ['regenerator-runtime/runtime.js', './src/index.js'],
   },
   output: {
     filename: 'app.bundle.js',

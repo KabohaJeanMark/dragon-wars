@@ -9,7 +9,7 @@ import OptionsScene from './Scenes/OptionsScene';
 import CreditsScene from './Scenes/CreditsScene';
 import EndGameScene from './Scenes/EndGameScene';
 import PlayerOneScene from './Scenes/PlayerOneScene';
-import LeaderboardScene from './Scenes/LeaderboardScene';
+import { LeaderboardScene } from './Scenes/LeaderboardScene';
 
 class Game extends Phaser.Game {
   constructor() {

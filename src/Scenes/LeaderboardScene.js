@@ -1,25 +1,45 @@
+import 'regenerator-runtime/runtime';
 import Phaser from 'phaser';
 import axios from 'axios';
 import gameConfig from '../Config/config';
 import Button from '../Objects/Button';
 
-const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/9tPsZn1y6N53NhZOXkYG/scores/';
+export const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/9tPsZn1y6N53NhZOXkYG/scores/';
 
 let scores;
 
-const getResults = async () => {
+// export const getResults = async () => {
+//   const response = await axios.get(url);
+//   console.log(response);
+//   return response.data.result;
+// };
+
+// getResults()
+//   .then((data) => {
+//     scores = data;
+//   }).catch((err) => {
+//     console.log(err.message);
+//   });
+
+export const getPlayers = async () => {
   const response = await axios.get(url);
-  return response.data.result;
+  return response.data;
 };
 
-getResults()
-  .then((data) => {
-    scores = data;
-  }).catch((err) => {
-    console.log(err.message);
-  });
+export const getResults = async () => {
+  try {
+    const data = await getPlayers();
+    scores = data.result;
+    return scores;
+  }
+  catch {
+    return [];
+  }
+};
 
-export default class LeaderboardScene extends Phaser.Scene {
+getResults();
+
+export class LeaderboardScene extends Phaser.Scene {
   constructor() {
     super('Leaderboard');
     console.log('Leaderboard scene');

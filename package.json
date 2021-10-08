@@ -3,7 +3,6 @@
   "version": "1.1.2",
   "description": "A Phaser 3 Project Template",
   "main": "src/index.js",
-  
   "scripts": {
     "test": "jest",
     "watch": "webpack --watch",
@@ -13,9 +12,9 @@
   "jest": {
     "automock": false,
     "setupFiles": [
-    "jest-canvas-mock"
+      "jest-canvas-mock"
     ]
-    }, 
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/photonstorm/phaser3-project-template.git"
@@ -58,7 +57,8 @@
   },
   "dependencies": {
     "axios": "^0.22.0",
-    "phaser": "^3.50.0"
+    "phaser": "^3.50.0",
+    "regenerator-runtime": "^0.10.5"
   },
   "keywords": []
 }
