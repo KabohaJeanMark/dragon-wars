@@ -9,13 +9,13 @@ export const playerInfo = {
 export default class GameScene extends Phaser.Scene {
   constructor() {
     super('Game');
-    // player is alive
-    this.isPlayerAlive = true;
 
     console.log('This scene has started');
   }
 
   init() {
+    // player is alive
+    this.isPlayerAlive = true;
     this.playerSpeed = 1.5;
     this.enemyMaxY = 600;
     this.enemyMinY = 80;
@@ -177,7 +177,6 @@ export default class GameScene extends Phaser.Scene {
     console.log('hit this function');
     this.physics.pause();
     player.anims.play('turn', true);
-    // this.gameOver = true;
     this.isPlayerAlive = false;
   }
 }

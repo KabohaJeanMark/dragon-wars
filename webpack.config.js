@@ -3,8 +3,8 @@ const CopyPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
-  mode: 'production',
-  // devtool: 'inline-source-map',
+  mode: 'development',
+  devtool: 'inline-source-map',
   entry: {
     app: ['regenerator-runtime/runtime.js', './src/index.js'],
   },
