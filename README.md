@@ -49,8 +49,6 @@ Stars
 ![screenshot](src/assets/star.png) ![screenshot](src/assets/star.png) ![screenshot](src/assets/star.png)
 
 
-
-
 ## Built With
 
 - HTML5 & CSS3
@@ -113,7 +111,7 @@ Give a ⭐️ if you like this project!
 - Hat tip to Microverse for the README template, instructions and tutoring for this JavaScript Capstone project.
 
 ## Inspirations
-- Game sprites design by []()
+- Game of Thrones main title theme song by Ramin Djawadi.
 
 ## 📝 License
 
