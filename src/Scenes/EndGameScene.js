@@ -4,21 +4,20 @@ import axios from 'axios';
 import gameConfig from '../Config/config';
 import { playerInfo } from './GameScene';
 
-export const baseUrl = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/9tPsZn1y6N53NhZOXkYG/scores/';
-
 export const postGameScore = async (scoreInfo) => {
+  const baseUrl = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/9tPsZn1y6N53NhZOXkYG/scores/';
   const response = await axios.post(baseUrl, scoreInfo);
-  return response;
+  return response.data;
 };
 
 export const getResultofPost = async () => {
   try {
     const data = await postGameScore();
-    const result = data.result;
+    const { result } = data;
     return result;
   } catch {
     return [{
-      "error": "The post of the score was not successful"
+      error: 'The post of the score was not successful',
     }];
   }
 };

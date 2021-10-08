@@ -62,7 +62,7 @@ export default class GameScene extends Phaser.Scene {
 
     enemies.forEach((enemy) => {
       enemy.setScale(1.1);
-      enemy.speed = Math.random() * 2 + 2;
+      enemy.speed = Math.random() * 2 + 3;
     });
 
     // group of stars, dragon food

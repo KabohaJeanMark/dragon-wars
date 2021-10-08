@@ -9,7 +9,7 @@ describe('Negative test for failed API post call', () => {
     axios.post.mockImplementation(() => Promise.reject(new Error(message)));
     const result = await getResultofPost();
     expect(result).toEqual([{
-      "error": "The post of the score was not successful"
+      error: 'The post of the score was not successful',
     }]);
   });
 });
