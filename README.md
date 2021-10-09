@@ -84,6 +84,12 @@ Clone this [GitHub Repo](https://github.com/KabohaJeanMark/jersey-directory/tree
 | `npm start` | Build project and open web server running project |
 | `npm run build` | Builds code bundle with production settings (minification, uglification, etc..) |
 
+#### Testing the app
+
+| Command | Description |
+|---------|-------------|
+| `npm run test` | Runs unit tests on the different modules and functions within them |
+
 ### Usage
 - View with live Server in VS code or Right click and open the index.html in your browser to view.
 
