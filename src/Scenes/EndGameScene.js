@@ -4,34 +4,22 @@ import axios from 'axios';
 import gameConfig from '../Config/config';
 import { playerInfo } from './GameScene';
 
-export const postGameScore = async (scoreInfo) => {
-  const baseUrl = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/9tPsZn1y6N53NhZOXkYG/scores/';
-  const response = await axios.post(baseUrl, scoreInfo);
-  return response.data;
-};
-
-export const getResultofPost = async () => {
-  try {
-    const data = await postGameScore();
-    const { result } = data;
-    return result;
-  } catch {
-    return [{
-      error: 'The post of the score was not successful',
-    }];
-  }
-};
-
-if (playerInfo.score) {
-  postGameScore(playerInfo);
-}
-
-export class EndGameScene extends Phaser.Scene {
+export default class EndGameScene extends Phaser.Scene {
   constructor() {
     super('EndGame');
   }
 
   create() {
+    const postGameScore = async (scoreInfo) => {
+      const baseUrl = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/9tPsZn1y6N53NhZOXkYG/scores/';
+      const response = await axios.post(baseUrl, scoreInfo);
+      return response.data;
+    };
+
+    if (playerInfo.score) {
+      postGameScore(playerInfo);
+    }
+
     const div = document.createElement('div');
     div.setAttribute('id', 'div');
 
