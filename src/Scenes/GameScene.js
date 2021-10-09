@@ -9,13 +9,10 @@ export const playerInfo = {
 export default class GameScene extends Phaser.Scene {
   constructor() {
     super('Game');
-
-    console.log('This scene has started');
   }
 
   init() {
-    // player is alive
-    this.isPlayerAlive = true;
+    this.gameOver = false;
     this.playerSpeed = 1.5;
     this.enemyMaxY = 600;
     this.enemyMinY = 80;
@@ -61,7 +58,7 @@ export default class GameScene extends Phaser.Scene {
     const enemies = this.enemies.getChildren();
 
     enemies.forEach((enemy) => {
-      enemy.setScale(1.1);
+      enemy.setScale(0.8);
       enemy.speed = Math.random() * 2 + 3;
     });
 
@@ -108,11 +105,11 @@ export default class GameScene extends Phaser.Scene {
       frameRate: 10,
       repeat: -1,
     });
-    this.anims.create({
-      key: 'turn',
-      frames: [{ key: 'right1' }],
-      frameRate: 10,
-    });
+    // this.anims.create({
+    //   key: 'turn',
+    //   frames: [{ key: 'right1' }],
+    //   frameRate: 10,
+    // });
     this.anims.create({
       key: 'up',
       frames: [{ key: 'up1' }, { key: 'up2' }, { key: 'up3' }, { key: 'up4' }, { key: 'up5' }, { key: 'up6' }],
@@ -128,7 +125,7 @@ export default class GameScene extends Phaser.Scene {
   }
 
   update() {
-    if (!this.isPlayerAlive) {
+    if (this.gameOver) {
       playerInfo.user = gameConfig.user;
       console.log('Go to end game scene');
 
@@ -174,9 +171,9 @@ export default class GameScene extends Phaser.Scene {
   }
 
   hitDragon(player) {
-    console.log('hit this function');
+    this.gameOver = true;
     this.physics.pause();
-    player.anims.play('turn', true);
-    this.isPlayerAlive = false;
+    console.log('Did you hit a player. Y are you calling hitdragon function?');
+    player.anims.play('down');
   }
 }
