@@ -29,7 +29,6 @@ if (playerInfo.score) {
 export class EndGameScene extends Phaser.Scene {
   constructor() {
     super('EndGame');
-    console.log('EndGame scene');
   }
 
   create() {

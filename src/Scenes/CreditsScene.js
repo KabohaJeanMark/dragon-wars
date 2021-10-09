@@ -11,7 +11,7 @@ export default class CreditsScene extends Phaser.Scene {
       fontSize: '32px',
       fill: '#fff',
     });
-    this.madeByText = this.add.text(0, 0, 'Created By: Placeholder', {
+    this.madeByText = this.add.text(0, 0, 'Created By: Kaboha Jean Mark', {
       fontSize: '26px',
       fill: '#fff',
     });

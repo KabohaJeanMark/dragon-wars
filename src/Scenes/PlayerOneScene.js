@@ -4,7 +4,6 @@ import gameConfig from '../Config/config';
 export default class PlayerOneScene extends Phaser.Scene {
   constructor() {
     super('PlayerOne');
-    console.log('Player name input scene');
   }
 
   create() {

@@ -127,7 +127,6 @@ export default class GameScene extends Phaser.Scene {
   update() {
     if (this.gameOver) {
       playerInfo.user = gameConfig.user;
-      console.log('Go to end game scene');
 
       this.scene.start('EndGame');
       return;
@@ -173,7 +172,6 @@ export default class GameScene extends Phaser.Scene {
   hitDragon(player) {
     this.gameOver = true;
     this.physics.pause();
-    console.log('Did you hit a player. Y are you calling hitdragon function?');
     player.anims.play('down');
   }
 }

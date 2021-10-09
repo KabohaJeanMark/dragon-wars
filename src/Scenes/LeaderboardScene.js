@@ -28,16 +28,12 @@ getResults();
 export class LeaderboardScene extends Phaser.Scene {
   constructor() {
     super('Leaderboard');
-    console.log('Leaderboard scene');
   }
 
   create() {
-    console.log(scores);
     const sortedScores = scores.sort((a, b) => ((a.score > b.score) ? -1 : 1));
-    console.log(sortedScores);
 
     const topFive = sortedScores.slice(0, 5);
-    console.log(topFive);
 
     this.menuButton = new Button(
       this,
@@ -93,7 +89,6 @@ export class LeaderboardScene extends Phaser.Scene {
     `;
     div.append(d1, div2);
 
-    console.log(div);
     this.add.dom(gameConfig.width / 2, gameConfig.height / 2, div);
   }
 }
