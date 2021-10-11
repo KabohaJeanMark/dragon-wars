@@ -16,6 +16,7 @@ export default class GameScene extends Phaser.Scene {
     this.playerSpeed = 1.5;
     this.enemyMaxY = 600;
     this.enemyMinY = 80;
+    playerInfo.score = 0;
   }
 
   create() {
@@ -105,11 +106,6 @@ export default class GameScene extends Phaser.Scene {
       frameRate: 10,
       repeat: -1,
     });
-    // this.anims.create({
-    //   key: 'turn',
-    //   frames: [{ key: 'right1' }],
-    //   frameRate: 10,
-    // });
     this.anims.create({
       key: 'up',
       frames: [{ key: 'up1' }, { key: 'up2' }, { key: 'up3' }, { key: 'up4' }, { key: 'up5' }, { key: 'up6' }],

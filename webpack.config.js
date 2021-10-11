@@ -1,6 +1,6 @@
 const path = require('path');
-const CopyPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -10,11 +10,10 @@ module.exports = {
   },
   output: {
     filename: 'app.bundle.js',
-    path: path.resolve(__dirname, 'build'),
-    clean: true,
+    path: path.resolve(__dirname, 'dist'),
   },
   devServer: {
-    contentBase: path.resolve(__dirname, 'build'),
+    contentBase: path.resolve(__dirname, 'dist'),
   },
   module: {
     rules: [
@@ -23,8 +22,12 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
+        test: /\.(ogg|mp3|wav|png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
       },
       {
         test: /\.m?js$/,
@@ -44,20 +47,13 @@ module.exports = {
     ],
   },
   plugins: [
-    new CopyPlugin({
-      patterns: [
-        {
-          from: path.resolve(__dirname, 'index.html'),
-          to: path.resolve(__dirname, 'build'),
-        },
-        {
-          from: path.resolve(__dirname, './src/assets'),
-          to: path.resolve(__dirname, 'build'),
-        },
-      ],
-    }),
     new webpack.DefinePlugin({
       'typeof WEBGL_RENDERER': JSON.stringify(true),
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: '/src/index.html',
+      inject: true,
     }),
   ],
 };
