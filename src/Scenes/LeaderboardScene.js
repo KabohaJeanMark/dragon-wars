@@ -38,10 +38,10 @@ export class LeaderboardScene extends Phaser.Scene {
     this.menuButton = new Button(
       this,
       gameConfig.width / 2,
-      gameConfig.height / 4,
+      gameConfig.height / 8,
       'blueButton1',
       'blueButton2',
-      'Menu',
+      '<- Menu',
       'Title',
     );
     const div = document.createElement('div');
