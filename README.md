@@ -2,7 +2,7 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
 ## About
-> dragon-wars is a fun game about a battle taking place between giant celestial beings dragons in the volcano planet. The red player character dragon has to fly through and avoid the claws and talons. To read more about it, please check out the [Game Design Document](https://docs.google.com/document/d/1gOAscnt4V_kkuCB7OBh2xV_OsH-59xiwq5gq7vZvycA/edit?usp=sharing)
+> dragon-wars is a fun game about a battle taking place between giant celestial beings dragons in the volcano planet. The red player character dragon has to fly through and avoid the claws and talons. To read more about it, please check out the [Game Design Document](./GDD.md)
 
 ### Play Now
 
