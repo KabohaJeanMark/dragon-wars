@@ -26,6 +26,7 @@ export default class EndGameScene extends Phaser.Scene {
     const header = document.createElement('hi');
     header.setAttribute('id', 'gameOverHeader');
     header.textContent = 'GAME OVER';
+    header.style.cssText = 'color: #f00; font-size: 6rem; align-text: center; margin: 0.5rem; padding: 0.4rem;';
 
     const playerScore = document.createElement('p');
     playerScore.style.cssText = 'color: #fff; font-size: 3rem; align-text: center; margin: 0.5rem; padding: 0.4rem;';
