@@ -1,7 +1,6 @@
 import Phaser from 'phaser';
 import blueButton1 from '../assets/blue_button02.png';
 import blueButton2 from '../assets/blue_button03.png';
-import logo from '../assets/right0.png';
 import greyBox from '../assets/grey_box.png';
 import checkedBox from '../assets/blue_boxCheckmark.png';
 import ost from '../assets/got.mp3';
@@ -34,8 +33,6 @@ import down3 from '../assets/down3.png';
 import down4 from '../assets/down4.png';
 import down5 from '../assets/down5.png';
 import down6 from '../assets/down6.png';
-
-
 
 export default class PreloaderScene extends Phaser.Scene {
   constructor() {
@@ -109,7 +106,7 @@ export default class PreloaderScene extends Phaser.Scene {
     // load assets needed in our game
     this.load.image('blueButton1', blueButton1);
     this.load.image('blueButton2', blueButton2);
-    this.load.image('phaserLogo', logo);
+    this.load.image('phaserLogo', player);
     this.load.image('box', greyBox);
     this.load.image('checkedBox', checkedBox);
     this.load.audio('bgMusic', ost);
