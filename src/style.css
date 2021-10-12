@@ -13,3 +13,8 @@ canvas {
   width: 100%;
   max-height: 100vh;
 }
+
+#gameOverHeader {
+  font-size: 8rem;
+  color: rgb(150, 16, 16);
+}

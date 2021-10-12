@@ -1,20 +1,21 @@
-import Phaser from "phaser";
+import Phaser from 'phaser';
+
 const gameConfig = {
   type: Phaser.AUTO,
-  width:  1366,
-  height: 741,
-  parent: "canvas",
+  width: window.innerWidth,
+  height: window.innerHeight,
+  parent: 'canvas',
   dom: {
     createContainer: true,
   },
   physics: {
-    default: "arcade",
+    default: 'arcade',
     arcade: {
       debug: false,
-      gravity: { y: 600 },
+      gravity: { y: 0 },
     },
   },
-  user: "",
+  user: '',
 };
 
 export default gameConfig;

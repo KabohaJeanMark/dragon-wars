@@ -1,12 +1,16 @@
-import Phaser from "phaser";
+import Phaser from 'phaser';
+import dragonLogo from '../assets/dragon_logo.png';
+
 export default class BootScene extends Phaser.Scene {
   constructor() {
-    super("Boot");
+    super('Boot');
   }
+
   preload() {
-    this.load.image("logo", "src/assets/zenva_logo.png");
+    this.load.image('logo', dragonLogo);
   }
+
   create() {
-    this.scene.start("Preloader");
+    this.scene.start('Preloader');
   }
 }
