@@ -81,8 +81,8 @@ Clone this [GitHub Repo](https://github.com/KabohaJeanMark/jersey-directory/tree
 | `cd yourFolder` | Change directory into that folder |
 | `git clone https://github.com/KabohaJeanMark/jersey-directory/tree/ft-main-page` | CLone and copy the project into that folder |
 | `npm install` | Install project dependencies |
-| `npm start` | Build project and open web server running project |
-| `npm run build` | Builds code bundle with production settings (minification, uglification, etc..) |
+| `npm run start` | Build project and open web server running project automatically watching and building JS changes |
+| `npm run build` | Builds code bundle INTO THE dist folder with either production or development settings (minification, uglification, etc..) based on the webpack.config.js settings |
 
 #### Testing the app
 
